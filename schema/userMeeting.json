@@ -1,0 +1,29 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+      "id": { "type": "number" },
+      "title": { "type": "string" },
+      "description": { "type": ["string", "null"] },
+      "date": { "type": "string" },
+      "is_scheduled": { "type": "boolean" },
+      "start_time": { "type": "string" },
+      "end_time": { "type": "string" },
+      "is_bot": { "type": "boolean" },
+      "repeat_days": { "type": ["any", "null"] },
+      "join_link": { "type": ["string", "null"] },
+      "file": { "type": "string" },
+      "color": { "type": "string" },
+      "platform_id": { "type": "number" },
+      "platform_meeting_id": { "type": "string" },
+      "last_updated": { "type": "string" },
+      "event_prompt": { "type": ["any", "null"] },
+      "start_notify_time": { "type": "number" },
+      "end_notify_time": { "type": "number" },
+      "meeting_image": { "type": ["any", "null"] },
+      "audience": { "type": "string" },
+      "platform_name": { "type": ["any", "null"] }
+    },
+    "required": ["id", "title", "date", "is_scheduled", "start_time", "end_time", "is_bot", "file", "color", "platform_id", "platform_meeting_id", "last_updated", "start_notify_time", "end_notify_time", "audience"]
+  }
+  
