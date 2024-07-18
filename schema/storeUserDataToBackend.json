@@ -1,0 +1,35 @@
+{
+    "type": "object",
+    "properties": {
+      "user": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "format": "email"
+          },
+          "accessToken": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": ["email", "accessToken"]
+      },
+      "token": {
+        "type": "string",
+        "minLength": 1
+      },
+      "region": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": ["value"]
+      }
+    },
+    "required": ["user", "token", "region"]
+  }
+  
