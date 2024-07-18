@@ -1,45 +1,121 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "type": "object",
-    "properties": {
-      "status": { "type": "string" },
-      "status_code": { "type": "number" },
-      "message": { "type": "string" },
-      "data": {
-        "type": "object",
-        "properties": {
-          "userId": { "type": "number" },
-          "email": { "type": "string" },
-          "firstName": { "type": "string" },
-          "lastName": { "type": ["string", "null"] },
-          "gmail_integration": {
-            "type": "array",
-            "items": { "$ref": "#/definitions/integration" }
-          },
-          "outlook_integration": {
-            "type": "array",
-            "items": { "$ref": "#/definitions/integration" }
-          },
-          "zoom_integration": {
-            "type": "array",
-            "items": { "$ref": "#/definitions/integration" }
-          },
-          "contract_type": { "type": "string" }
+  "type": "object",
+  "properties": {
+    "data": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string"
         },
-        "required": ["userId", "email", "contract_type", "firstName", "lastName"]
-      }
-    },
-    "required": ["status", "status_code", "message", "data"],
-    "definitions": {
-      "integration": {
-        "type": "object",
-        "properties": {
-          "platform_id": { "type": "string" },
-          "email": { "type": "string" },
-          "is_active": { "type": "boolean" }
+        "status_code": {
+          "type": "number"
         },
-        "required": ["platform_id", "email", "is_active"]
-      }
+        "message": {
+          "type": "string"
+        },
+        "data": {
+          "type": "object",
+          "properties": {
+            "userId": {
+              "type": "number"
+            },
+            "email": {
+              "type": "string"
+            },
+            "firstName": {
+              "type": "string"
+            },
+            "lastName": {
+              "type": "string"
+            },
+            "gmail_integration": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "platform_id": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  },
+                  "is_active": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "platform_id",
+                  "email",
+                  "is_active"
+                ]
+              }
+            },
+            "outlook_integration": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "platform_id": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  },
+                  "is_active": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "platform_id",
+                  "email",
+                  "is_active"
+                ]
+              }
+            },
+            "zoom_integration": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "platform_id": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  },
+                  "is_active": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "platform_id",
+                  "email",
+                  "is_active"
+                ]
+              }
+            },
+            "contract_type": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "userId",
+            "email",
+            "firstName",
+            "lastName",
+            "gmail_integration",
+            "outlook_integration",
+            "zoom_integration",
+            "contract_type"
+          ]
+        }
+      },
+      "required": [
+        "status",
+        "status_code",
+        "message",
+        "data"
+      ]
     }
   }
-  
+}
