@@ -5,8 +5,7 @@
         "type": "object",
         "properties": {
           "email": {
-            "type": "string",
-            "format": "email"
+            "type": "string"
           },
           "accessToken": {
             "type": "string",
