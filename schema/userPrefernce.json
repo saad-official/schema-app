@@ -33,6 +33,9 @@
             },
             "start_time": {
               "type": "number"
+            },
+            "device_preferences":{
+              "type":"object"
             }
           }
         },
