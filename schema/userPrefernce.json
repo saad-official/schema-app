@@ -1,49 +1,98 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "type": "object",
-    "properties": {
-      "data": {
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "status": {
+      "type": "string"
+    },
+    "status_code": {
+      "type": "number"
+    },
+    "message": {
+      "type": "string"
+    },
+    "data": {
+      "type": "array",
+      "items": {
         "type": "object",
         "properties": {
-      "status": {
-        "type": "string"
-      },
-      "status_code": {
-        "type": "number"
-      },
-      "message": {
-        "type": "string"
-      },
-      "data": {
-        "type": "array",
-        "items": {
-          "type": "object",
-          "properties": {
-            "platform": {
-              "type": "string"
-            },
-            "enabled": {
-              "type": "boolean"
-            },
-            "image": {
-              "type": "string"
-            },
-            "audio": {
-              "type": "string"
-            },
-            "start_time": {
-              "type": "number"
-            },
-            "device_preferences":{
-              "type":"object"
+          "platform": {
+            "type": "string"
+          },
+          "enabled": {
+            "type": "boolean"
+          },
+          "image": {
+            "type": "string"
+          },
+          "audio": {
+            "type": "string"
+          },
+          "start_time": {
+            "type": "number"
+          },
+          "device_preferences": {
+            "type": "object",
+            "properties": {
+              "android": {
+                "type": "object",
+                "properties": {
+                  "deviceSound": {
+                    "oneOf": [
+                      { "type": "string" },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "title": { "type": "string" },
+                          "url": { "type": "string" }
+                        },
+                        "required": ["title", "url"]
+                      }
+                    ]
+                  },
+                  "customizeNotification": { "type": "boolean" },
+                  "importance": { "type": "string" },
+                  "vibration": { "type": "string" },
+                  "customizedNotification": { "type": "string" },
+                  "visibility": { "type": "string" },
+                  "light": { "type": "string" },
+                  "channel_id": { "type": "string" }
+                },
+                "required": ["deviceSound"]
+              },
+              "ios": {
+                "type": "object",
+                "properties": {
+                  "vibration": { "type": "string" },
+                  "critical": { "type": "string" },
+                  "interruptionLevel": { "type": "string" },
+                  "badgeCount": { "type": "string" }
+                }
+              },
+              "web": { "type": "string" },
+              "zoom": {
+                "type": "object",
+                "properties": {
+                  "timerStyle": { "type": "string" },
+                  "timerFont": { "type": "string" },
+                  "timerColorPattern": {
+                    "type": "object",
+                    "properties": {
+                      "color1": { "type": "string" },
+                      "color2": { "type": "string" },
+                      "color3": { "type": "string" }
+                    },
+                    "required": ["color1", "color2", "color3"]
+                  }
+                },
+                "required": ["timerStyle", "timerFont", "timerColorPattern"]
+              }
             }
           }
         },
-          "required": ["platform", "enabled", "image", "audio", "start_time"]
-        }
+        "required": ["platform", "enabled", "image", "audio", "start_time"]
       }
     }
-    },
-    "required": ["status", "status_code", "message", "data"]
-  }
-  
+  },
+  "required": ["status", "status_code", "message", "data"]
+}
